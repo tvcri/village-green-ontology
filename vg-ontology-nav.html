@@ -304,7 +304,7 @@
 
 <!-- ══ OVERVIEW ══ -->
 <div class="view active" id="view-overview">
-<svg viewBox="0 0 820 900" role="img" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 820 1000" role="img" xmlns="http://www.w3.org/2000/svg">
   <title>Village Green ontology relationship overview</title>
   <desc>Person at center top with User, Member, and Volunteer roles below. Household below Member. PendingMember and PendingVolunteer in a transient tier. Sub-entities DuesRequirement, DuesEvidence, OnboardingRequirement, and OnboardingEvidence hang below the pending entities. EmergencyContact owned by Person.</desc>
   <defs>
@@ -356,151 +356,171 @@
 
   </style>
 
-  <!-- graduation routes (drawn first so they render behind Person) -->
-  <path d="M290 56 L20 56 L20 354 L28 354" class="ov-edge-dash"/>
-  <path d="M490 56 L740 56 L740 354 L732 354" class="ov-edge-dash"/>
+  <!-- graduation routes (drawn first so they render behind Person and Village) -->
+  <path d="M310 136 L20 136 L20 454 L28 454" class="ov-edge-dash"/>
+  <path d="M490 136 L740 136 L740 454 L732 454" class="ov-edge-dash"/>
+
+  <!-- VILLAGE -->
+  <g class="n-support ov-text ov-node" data-entity="village" style="cursor:pointer">
+    <rect x="150" y="30" width="220" height="52" rx="8" stroke-width="0.75"/>
+    <text class="ov-th" x="260" y="52" text-anchor="middle" dominant-baseline="central">Village</text>
+    <text class="ov-ts" x="260" y="70" text-anchor="middle" dominant-baseline="central">Organizational spoke · TVCRI</text>
+  </g>
+
+  <!-- VILLAGE ROLE -->
+  <line x1="370" y1="56" x2="390" y2="56" class="ov-edge"/>
+  <text class="ov-label ov-text ov-hint" x="380" y="48" dominant-baseline="central">1..n</text>
+  <g class="n-role ov-text ov-node" data-entity="village-role" style="cursor:pointer">
+    <rect x="390" y="30" width="220" height="52" rx="8" stroke-width="0.75"/>
+    <text class="ov-th" x="500" y="52" text-anchor="middle" dominant-baseline="central">Village role</text>
+    <text class="ov-ts" x="500" y="70" text-anchor="middle" dominant-baseline="central">Person × Village · typed</text>
+  </g>
+
+  <!-- Village → Person -->
+  <line x1="260" y1="82" x2="260" y2="104" class="ov-edge-dash"/>
+  <line x1="260" y1="104" x2="380" y2="104" class="ov-edge-dash"/>
+  <line x1="380" y1="104" x2="380" y2="110" class="ov-edge-dash" marker-end="url(#arr)"/>
+  <text class="ov-label ov-text ov-hint" x="268" y="98" dominant-baseline="central">belongs to</text>
 
   <!-- PERSON -->
   <g class="n-person ov-text ov-node" data-entity="person" style="cursor:pointer">
-    <rect x="270" y="30" width="220" height="52" rx="8" stroke-width="0.75"/>
-    <text class="ov-th" x="380" y="52" text-anchor="middle" dominant-baseline="central">Person</text>
-    <text class="ov-ts" x="380" y="70" text-anchor="middle" dominant-baseline="central">Stable identity · all roles keyed by pId</text>
+    <rect x="270" y="110" width="220" height="52" rx="8" stroke-width="0.75"/>
+    <text class="ov-th" x="380" y="132" text-anchor="middle" dominant-baseline="central">Person</text>
+    <text class="ov-ts" x="380" y="150" text-anchor="middle" dominant-baseline="central">Stable identity · all roles keyed by pId</text>
   </g>
 
   <!-- role fork -->
-  <line x1="380" y1="82" x2="380" y2="110" class="ov-edge-dash"/>
-  <line x1="110" y1="110" x2="650" y2="110" class="ov-edge-dash"/>
-  <line x1="110" y1="110" x2="110" y2="126" class="ov-edge-dash"/>
-  <line x1="380" y1="110" x2="380" y2="126" class="ov-edge-dash"/>
-  <line x1="650" y1="110" x2="650" y2="126" class="ov-edge-dash"/>
+  <line x1="380" y1="162" x2="380" y2="190" class="ov-edge-dash"/>
+  <line x1="110" y1="190" x2="650" y2="190" class="ov-edge-dash"/>
+  <line x1="110" y1="190" x2="110" y2="206" class="ov-edge-dash"/>
+  <line x1="380" y1="190" x2="380" y2="206" class="ov-edge-dash"/>
+  <line x1="650" y1="190" x2="650" y2="206" class="ov-edge-dash"/>
 
   <!-- USER -->
   <g class="n-role ov-text ov-node" data-entity="user" style="cursor:pointer">
-    <rect x="30" y="126" width="160" height="52" rx="8" stroke-width="0.75"/>
-    <text class="ov-th" x="110" y="148" text-anchor="middle" dominant-baseline="central">User</text>
-    <text class="ov-ts" x="110" y="166" text-anchor="middle" dominant-baseline="central">System access</text>
+    <rect x="30" y="206" width="160" height="52" rx="8" stroke-width="0.75"/>
+    <text class="ov-th" x="110" y="228" text-anchor="middle" dominant-baseline="central">User</text>
+    <text class="ov-ts" x="110" y="246" text-anchor="middle" dominant-baseline="central">System access</text>
   </g>
 
   <!-- MEMBER -->
   <g class="n-role ov-text ov-node" data-entity="member" style="cursor:pointer">
-    <rect x="290" y="126" width="180" height="52" rx="8" stroke-width="0.75"/>
-    <text class="ov-th" x="380" y="148" text-anchor="middle" dominant-baseline="central">Member</text>
-    <text class="ov-ts" x="380" y="166" text-anchor="middle" dominant-baseline="central">Requests services</text>
+    <rect x="290" y="206" width="180" height="52" rx="8" stroke-width="0.75"/>
+    <text class="ov-th" x="380" y="228" text-anchor="middle" dominant-baseline="central">Member</text>
+    <text class="ov-ts" x="380" y="246" text-anchor="middle" dominant-baseline="central">Requests services</text>
   </g>
 
   <!-- VOLUNTEER -->
   <g class="n-role ov-text ov-node" data-entity="volunteer" style="cursor:pointer">
-    <rect x="565" y="126" width="175" height="52" rx="8" stroke-width="0.75"/>
-    <text class="ov-th" x="652" y="148" text-anchor="middle" dominant-baseline="central">Volunteer</text>
-    <text class="ov-ts" x="652" y="166" text-anchor="middle" dominant-baseline="central">Provides services</text>
+    <rect x="565" y="206" width="175" height="52" rx="8" stroke-width="0.75"/>
+    <text class="ov-th" x="652" y="228" text-anchor="middle" dominant-baseline="central">Volunteer</text>
+    <text class="ov-ts" x="652" y="246" text-anchor="middle" dominant-baseline="central">Provides services</text>
   </g>
 
   <!-- HOUSEHOLD -->
-  <line x1="380" y1="178" x2="380" y2="216" class="ov-edge"/>
-  <text class="ov-label ov-text ov-hint" x="388" y="202" dominant-baseline="central">2 Members</text>
+  <line x1="380" y1="258" x2="380" y2="296" class="ov-edge"/>
+  <text class="ov-label ov-text ov-hint" x="388" y="282" dominant-baseline="central">2 Members</text>
   <g class="n-support ov-text ov-node" data-entity="household" style="cursor:pointer">
-    <rect x="290" y="216" width="180" height="52" rx="8" stroke-width="0.75"/>
-    <text class="ov-th" x="380" y="238" text-anchor="middle" dominant-baseline="central">Household</text>
-    <text class="ov-ts" x="380" y="256" text-anchor="middle" dominant-baseline="central">Dual dues grouping</text>
+    <rect x="290" y="296" width="180" height="52" rx="8" stroke-width="0.75"/>
+    <text class="ov-th" x="380" y="318" text-anchor="middle" dominant-baseline="central">Household</text>
+    <text class="ov-ts" x="380" y="336" text-anchor="middle" dominant-baseline="central">Dual dues grouping</text>
   </g>
 
   <!-- transient divider -->
-  <line x1="30" y1="316" x2="730" y2="316" class="ov-divider"/>
-  <text class="ov-label ov-text ov-hint" x="380" y="308" text-anchor="middle" font-style="italic">transient pre-role entities</text>
+  <line x1="30" y1="396" x2="730" y2="396" class="ov-divider"/>
+  <text class="ov-label ov-text ov-hint" x="380" y="388" text-anchor="middle" font-style="italic">transient pre-role entities</text>
 
   <!-- PENDING MEMBER -->
   <g class="n-pending ov-text ov-node" data-entity="pending-member" style="cursor:pointer">
-    <rect x="30" y="328" width="260" height="52" rx="8" stroke-width="0.75"/>
-    <text class="ov-th" x="160" y="350" text-anchor="middle" dominant-baseline="central">Pending member</text>
-    <text class="ov-ts" x="160" y="368" text-anchor="middle" dominant-baseline="central">Pre-role · ambassador-gated entry</text>
+    <rect x="30" y="408" width="260" height="52" rx="8" stroke-width="0.75"/>
+    <text class="ov-th" x="160" y="430" text-anchor="middle" dominant-baseline="central">Pending member</text>
+    <text class="ov-ts" x="160" y="448" text-anchor="middle" dominant-baseline="central">Pre-role · ambassador-gated entry</text>
   </g>
 
   <!-- PENDING VOLUNTEER -->
   <g class="n-pending ov-text ov-node" data-entity="pending-volunteer" style="cursor:pointer">
-    <rect x="470" y="328" width="260" height="52" rx="8" stroke-width="0.75"/>
-    <text class="ov-th" x="600" y="350" text-anchor="middle" dominant-baseline="central">Pending volunteer</text>
-    <text class="ov-ts" x="600" y="368" text-anchor="middle" dominant-baseline="central">Pre-role · dynamic checklist</text>
+    <rect x="470" y="408" width="260" height="52" rx="8" stroke-width="0.75"/>
+    <text class="ov-th" x="600" y="430" text-anchor="middle" dominant-baseline="central">Pending volunteer</text>
+    <text class="ov-ts" x="600" y="448" text-anchor="middle" dominant-baseline="central">Pre-role · dynamic checklist</text>
   </g>
 
-  <!-- Person → PendingMember (left route) -->
-  <text class="ov-label ov-text ov-hint" x="14" y="210" text-anchor="middle" font-style="italic" transform="rotate(-90 14 210)">graduates → Member</text>
-
-  <!-- Person → PendingVolunteer (right route) -->
-  <text class="ov-label ov-text ov-hint" x="754" y="210" text-anchor="middle" font-style="italic" transform="rotate(-90 754 210)">graduates → Volunteer</text>
+  <!-- graduation labels -->
+  <text class="ov-label ov-text ov-hint" x="14" y="300" text-anchor="middle" font-style="italic" transform="rotate(-90 14 300)">graduates → Member</text>
+  <text class="ov-label ov-text ov-hint" x="754" y="300" text-anchor="middle" font-style="italic" transform="rotate(-90 754 300)">graduates → Volunteer</text>
 
   <!-- DUES REQUIREMENT -->
-  <line x1="160" y1="380" x2="160" y2="418" class="ov-edge"/>
-  <text class="ov-label ov-text ov-hint" x="168" y="404" dominant-baseline="central">1</text>
+  <line x1="160" y1="460" x2="160" y2="498" class="ov-edge"/>
+  <text class="ov-label ov-text ov-hint" x="168" y="484" dominant-baseline="central">1</text>
   <g class="n-sub ov-text ov-node" data-entity="dues-requirement" style="cursor:pointer">
-    <rect x="30" y="418" width="260" height="52" rx="8" stroke-width="0.75"/>
-    <text class="ov-th" x="160" y="440" text-anchor="middle" dominant-baseline="central">Dues requirement</text>
-    <text class="ov-ts" x="160" y="458" text-anchor="middle" dominant-baseline="central">Sole graduation gate</text>
+    <rect x="30" y="498" width="260" height="52" rx="8" stroke-width="0.75"/>
+    <text class="ov-th" x="160" y="520" text-anchor="middle" dominant-baseline="central">Dues requirement</text>
+    <text class="ov-ts" x="160" y="538" text-anchor="middle" dominant-baseline="central">Sole graduation gate</text>
   </g>
 
   <!-- DUES EVIDENCE -->
-  <line x1="160" y1="470" x2="160" y2="508" class="ov-edge"/>
-  <text class="ov-label ov-text ov-hint" x="168" y="494" dominant-baseline="central">1..n</text>
+  <line x1="160" y1="550" x2="160" y2="588" class="ov-edge"/>
+  <text class="ov-label ov-text ov-hint" x="168" y="574" dominant-baseline="central">1..n</text>
   <g class="n-sub ov-text ov-node" data-entity="dues-evidence" style="cursor:pointer">
-    <rect x="30" y="508" width="260" height="52" rx="8" stroke-width="0.75"/>
-    <text class="ov-th" x="160" y="530" text-anchor="middle" dominant-baseline="central">Dues evidence</text>
-    <text class="ov-ts" x="160" y="548" text-anchor="middle" dominant-baseline="central">Attestation or transaction ref</text>
+    <rect x="30" y="588" width="260" height="52" rx="8" stroke-width="0.75"/>
+    <text class="ov-th" x="160" y="610" text-anchor="middle" dominant-baseline="central">Dues evidence</text>
+    <text class="ov-ts" x="160" y="628" text-anchor="middle" dominant-baseline="central">Attestation or transaction ref</text>
   </g>
 
   <!-- ONBOARDING REQUIREMENT -->
-  <line x1="600" y1="380" x2="600" y2="418" class="ov-edge"/>
-  <text class="ov-label ov-text ov-hint" x="608" y="404" dominant-baseline="central">1..n</text>
+  <line x1="600" y1="460" x2="600" y2="498" class="ov-edge"/>
+  <text class="ov-label ov-text ov-hint" x="608" y="484" dominant-baseline="central">1..n</text>
   <g class="n-sub ov-text ov-node" data-entity="onboarding-requirement" style="cursor:pointer">
-    <rect x="470" y="418" width="260" height="52" rx="8" stroke-width="0.75"/>
-    <text class="ov-th" x="600" y="440" text-anchor="middle" dominant-baseline="central">Onboarding requirement</text>
-    <text class="ov-ts" x="600" y="458" text-anchor="middle" dominant-baseline="central">Per capability · dynamic</text>
+    <rect x="470" y="498" width="260" height="52" rx="8" stroke-width="0.75"/>
+    <text class="ov-th" x="600" y="520" text-anchor="middle" dominant-baseline="central">Onboarding requirement</text>
+    <text class="ov-ts" x="600" y="538" text-anchor="middle" dominant-baseline="central">Per capability · dynamic</text>
   </g>
 
   <!-- ONBOARDING EVIDENCE -->
-  <line x1="600" y1="470" x2="600" y2="508" class="ov-edge"/>
-  <text class="ov-label ov-text ov-hint" x="608" y="494" dominant-baseline="central">1..n</text>
+  <line x1="600" y1="550" x2="600" y2="588" class="ov-edge"/>
+  <text class="ov-label ov-text ov-hint" x="608" y="574" dominant-baseline="central">1..n</text>
   <g class="n-sub ov-text ov-node" data-entity="onboarding-evidence" style="cursor:pointer">
-    <rect x="470" y="508" width="260" height="52" rx="8" stroke-width="0.75"/>
-    <text class="ov-th" x="600" y="530" text-anchor="middle" dominant-baseline="central">Onboarding evidence</text>
-    <text class="ov-ts" x="600" y="548" text-anchor="middle" dominant-baseline="central">Attestation or document</text>
+    <rect x="470" y="588" width="260" height="52" rx="8" stroke-width="0.75"/>
+    <text class="ov-th" x="600" y="610" text-anchor="middle" dominant-baseline="central">Onboarding evidence</text>
+    <text class="ov-ts" x="600" y="628" text-anchor="middle" dominant-baseline="central">Attestation or document</text>
   </g>
 
   <!-- EMERGENCY CONTACT -->
-  <path d="M490 56 L690 56 L690 620" class="ov-edge-dash"/>
-  <line x1="690" y1="618" x2="690" y2="620" class="ov-edge-dash"/>
+  <path d="M490 136 L690 136 L690 700" class="ov-edge-dash"/>
+  <line x1="690" y1="698" x2="690" y2="700" class="ov-edge-dash" marker-end="url(#arr)"/>
   <g class="n-support ov-text ov-node" data-entity="emergency-contact" style="cursor:pointer">
-    <rect x="570" y="620" width="200" height="52" rx="8" stroke-width="0.75"/>
-    <text class="ov-th" x="670" y="642" text-anchor="middle" dominant-baseline="central">Emergency contact</text>
-    <text class="ov-ts" x="670" y="660" text-anchor="middle" dominant-baseline="central">Owned by Person · 1..n</text>
+    <rect x="570" y="700" width="200" height="52" rx="8" stroke-width="0.75"/>
+    <text class="ov-th" x="670" y="722" text-anchor="middle" dominant-baseline="central">Emergency contact</text>
+    <text class="ov-ts" x="670" y="740" text-anchor="middle" dominant-baseline="central">Owned by Person · 1..n</text>
   </g>
 
   <!-- LEGEND -->
-  <rect x="30" y="720" width="700" height="152" rx="8" fill="none" stroke="#B4B2A9" stroke-width="0.5" stroke-dasharray="4 3"/>
-  <text class="ov-label ov-text ov-hint" x="48" y="742" font-style="italic" font-size="11">Legend</text>
+  <rect x="30" y="800" width="700" height="152" rx="8" fill="none" stroke="#B4B2A9" stroke-width="0.5" stroke-dasharray="4 3"/>
+  <text class="ov-label ov-text ov-hint" x="48" y="822" font-style="italic" font-size="11">Legend</text>
 
-  <g class="n-person"><rect x="48" y="756" width="12" height="12" rx="2" stroke-width="0.75"/></g>
-  <text class="ov-label ov-text ov-muted" x="68" y="767" dominant-baseline="central">Core identity</text>
+  <g class="n-person"><rect x="48" y="836" width="12" height="12" rx="2" stroke-width="0.75"/></g>
+  <text class="ov-label ov-text ov-muted" x="68" y="847" dominant-baseline="central">Core identity</text>
 
-  <g class="n-role"><rect x="180" y="756" width="12" height="12" rx="2" stroke-width="0.75"/></g>
-  <text class="ov-label ov-text ov-muted" x="200" y="767" dominant-baseline="central">Role (keyed by pId)</text>
+  <g class="n-role"><rect x="180" y="836" width="12" height="12" rx="2" stroke-width="0.75"/></g>
+  <text class="ov-label ov-text ov-muted" x="200" y="847" dominant-baseline="central">Role (keyed by pId)</text>
 
-  <g class="n-pending"><rect x="340" y="756" width="12" height="12" rx="2" stroke-width="0.75"/></g>
-  <text class="ov-label ov-text ov-muted" x="360" y="767" dominant-baseline="central">Transient pre-role</text>
+  <g class="n-pending"><rect x="340" y="836" width="12" height="12" rx="2" stroke-width="0.75"/></g>
+  <text class="ov-label ov-text ov-muted" x="360" y="847" dominant-baseline="central">Transient pre-role</text>
 
-  <g class="n-sub"><rect x="500" y="756" width="12" height="12" rx="2" stroke-width="0.75"/></g>
-  <text class="ov-label ov-text ov-muted" x="520" y="767" dominant-baseline="central">Owned sub-entity</text>
+  <g class="n-sub"><rect x="500" y="836" width="12" height="12" rx="2" stroke-width="0.75"/></g>
+  <text class="ov-label ov-text ov-muted" x="520" y="847" dominant-baseline="central">Owned sub-entity</text>
 
-  <g class="n-support"><rect x="48" y="782" width="12" height="12" rx="2" stroke-width="0.75"/></g>
-  <text class="ov-label ov-text ov-muted" x="68" y="793" dominant-baseline="central">Grouping / support</text>
+  <g class="n-support"><rect x="48" y="862" width="12" height="12" rx="2" stroke-width="0.75"/></g>
+  <text class="ov-label ov-text ov-muted" x="68" y="873" dominant-baseline="central">Grouping / support</text>
 
-  <line x1="180" y1="788" x2="220" y2="788" class="ov-edge"/>
-  <text class="ov-label ov-text ov-muted" x="228" y="793" dominant-baseline="central">Owns / relates to</text>
+  <line x1="180" y1="868" x2="220" y2="868" class="ov-edge"/>
+  <text class="ov-label ov-text ov-muted" x="228" y="873" dominant-baseline="central">Owns / relates to</text>
 
-  <line x1="340" y1="788" x2="380" y2="788" class="ov-edge-dash"/>
-  <text class="ov-label ov-text ov-muted" x="388" y="793" dominant-baseline="central">Graduates / derives from</text>
+  <line x1="340" y1="868" x2="380" y2="868" class="ov-edge-dash"/>
+  <text class="ov-label ov-text ov-muted" x="388" y="873" dominant-baseline="central">Graduates / derives from</text>
 
-  <text class="ov-label ov-text ov-hint" x="48" y="820" font-size="11">Roles are implicit in the existence of a role record — not stored as flags on Person.</text>
-  <text class="ov-label ov-text ov-hint" x="48" y="838" font-size="11">Pending records persist permanently after graduation or rejection (audit trail).</text>
-  <text class="ov-label ov-text ov-hint" x="48" y="856" font-size="11">Graduation is an event, not a transformation — the pending record is closed and preserved; a new role record is created.</text>
+  <text class="ov-label ov-text ov-hint" x="48" y="900" font-size="11">Roles are implicit in the existence of a role record — not stored as flags on Person.</text>
+  <text class="ov-label ov-text ov-hint" x="48" y="918" font-size="11">Pending records persist permanently after graduation or rejection (audit trail).</text>
+  <text class="ov-label ov-text ov-hint" x="48" y="936" font-size="11">Graduation is an event, not a transformation — the pending record is closed and preserved; a new role record is created.</text>
 </svg>
   <!-- DETAIL OVERLAY -->
   <div id="detail-overlay"></div>
@@ -513,6 +533,33 @@
 <!-- ══ PROPERTIES ══ -->
 <div class="view" id="view-props">
 <div class="prop-grid">
+
+  <div class="prop-card card-gray">
+    <div class="card-header">
+      <h3>Village</h3>
+      <span class="badge">First-class entity</span>
+    </div>
+    <ul>
+      <li>Name</li>
+      <li>Status — active / inactive</li>
+      <li>Service area (free text)</li>
+      <li>Contact methods — phone, email (village-level)</li>
+    </ul>
+  </div>
+
+  <div class="prop-card card-teal">
+    <div class="card-header">
+      <h3>Village role</h3>
+      <span class="badge">Junction — Person × Village</span>
+    </div>
+    <ul>
+      <li>Person reference</li>
+      <li>Village reference</li>
+      <li>Role type (enumeration — TBD with working group)</li>
+      <li>Status — active / inactive</li>
+      <li>Effective date</li>
+    </ul>
+  </div>
 
   <div class="prop-card card-purple">
     <div class="card-header">
@@ -674,6 +721,7 @@
     </ul>
   </div>
 
+
 </div>
 </div>
 
@@ -739,6 +787,30 @@
     <div class="decision-date">May 2026</div>
     <div class="decision-title">LGL event model rejected for Village events</div>
     <div class="decision-body">LGL's event model is fundraising-oriented (donation attribution with a date). Unsuitable for Village community events. Events domain deferred to a future dedicated system. VG's stable pId on Person is sufficient future-proofing for event registration foreign keys.</div>
+  </div>
+
+  <div class="decision">
+    <div class="decision-date">May 2026</div>
+    <div class="decision-title">Village as first-class entity</div>
+    <div class="decision-body">Village modeled as a first-class entity with operational properties, not a simple lookup value or label on Person. Persons belong to exactly one Village (current association, no history tracked).</div>
+  </div>
+
+  <div class="decision">
+    <div class="decision-date">May 2026</div>
+    <div class="decision-title">No coordinator property on Village</div>
+    <div class="decision-body">Coordinator is a VillageRole, not a dedicated property on Village. Avoids denormalization and the question of what happens when the coordinator changes.</div>
+  </div>
+
+  <div class="decision">
+    <div class="decision-date">May 2026</div>
+    <div class="decision-title">VillageRole history not tracked</div>
+    <div class="decision-body">VillageRole records current state only — no effective/ended date history. Consistent with how Village membership on Person is handled. A known simplification; adding ended_date later is a trivial schema migration.</div>
+  </div>
+
+  <div class="decision">
+    <div class="decision-date">May 2026</div>
+    <div class="decision-title">RBAC deferred</div>
+    <div class="decision-body">VillageRole will inform role-based access control but the permissions model is deferred to a dedicated session. The ontology establishes what roles exist; RBAC defines what they are permitted to do.</div>
   </div>
 
 </div>
@@ -884,6 +956,27 @@ const ENTITIES = {
     title: 'Emergency contact', badge: 'Owned by Person', badgeColor: '#888780',
     note: 'Structured (not free text) because operational use — however rare — requires actionable data. Does not vary by role.',
     props: ['Name · relationship', 'Phone(s) · email (optional)']
+  },
+  'village': {
+    title: 'Village', badge: 'First-class entity', badgeColor: '#888780',
+    note: 'A spoke of TVCRI. The organizational unit within which Members receive services and Volunteers provide them. No coordinator property — the coordinator is a VillageRole.',
+    props: [
+      'Name',
+      'Status — active / inactive',
+      'Service area (free text)',
+      'Contact methods — phone, email (village-level)'
+    ]
+  },
+  'village-role': {
+    title: 'Village role', badge: 'Junction — Person × Village', badgeColor: '#0F6E56',
+    note: 'A Person may hold more than one VillageRole within a Village, or roles across multiple Villages. Role type enumeration to be defined with the working group. Will inform RBAC (deferred session).',
+    props: [
+      'Person reference',
+      'Village reference',
+      'Role type (enumeration — TBD: coordinator, ambassador, steering committee, volunteer lead, others)',
+      'Status — active / inactive',
+      'Effective date'
+    ]
   }
 };
 
